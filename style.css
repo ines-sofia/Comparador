@@ -1,0 +1,263 @@
+/* personalização do menu */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  max-width: 1050px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  width: 100%;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* alinha à esquerda e à direita */
+  align-items: center;
+  height: 62px;
+}
+
+.navbar .menu-items {
+  padding-top: 120px;
+  height: 100vh;
+  width: 250px;        /* fixa largura */
+  transform: translateX(-260px); /* desliza para fora */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s ease-in-out;
+  position: fixed;     /* fica colado à esquerda */
+  top: 0;
+  left: 0;
+  background: white;   /* fundo sólido */
+  z-index: 10;
+}
+
+.navbar .nav-container li {
+  list-style: none;
+}
+
+.navbar .nav-container a {
+  text-decoration: none;
+  color: #0e2431;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+}
+
+.navbar .nav-container a:hover{
+    font-weight: bolder;
+}
+
+.nav-container {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.nav-container .checkbox {
+  position: fixed;   /* ← garante que fica sempre visível */
+  top: 20px;
+  left: 20px;
+  height: 32px;
+  width: 32px;
+  z-index: 20;       /* ← mais alto que o menu (10) */
+  opacity: 0;
+  cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+  position: fixed;   /* ← o ícone também deve ficar fixo */
+  top: 17px;
+  left: 20px;
+  height: 26px;
+  width: 32px;
+  z-index: 15;       /* ← por cima do menu mas abaixo da checkbox */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #0e2431;
+}
+
+.nav-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+  padding-top: 120px;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  height: 100vh;
+  width: 100%;
+  transform: translate(-150%);
+  display: flex;
+  flex-direction: column;
+  margin-left: -40px;
+  padding-left: 50px;
+  transition: transform 0.7s ease-in-out;
+  text-align: center;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* para passar dos três traços à cruz */
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+/* conteúdo do site */
+body {
+    transition: margin-left 0.5s ease;
+}
+
+/* quando o menu abre: empurra conteúdo */
+.nav-container input[type="checkbox"]:checked ~ body {
+    margin-left: 250px;
+}
+
+#site {
+    transition: margin-left 0.5s ease;
+}
+
+.nav-container input[type="checkbox"]:checked ~ #site {
+    margin-left: 250px;   /* igual à largura do menu */
+}
+
+.navbar .menu-items {
+  position: fixed;     /* fica colado à esquerda */
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background: rgb(225, 236, 236);
+  transform: translateX(-260px);
+  transition: transform 0.5s ease-in-out;
+  z-index: 10;   /* ← abaixo da checkbox e do hambúrguer */
+  text-align: center;
+}
+
+/* --- Estilos do comparador (comp1) --- */
+#site {
+  max-width: 80vw; /* ocupa no máximo 80% do ecrã */
+  width: 100%;
+  margin: 40px auto; /* centra horizontalmente */
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column; /* organiza verticalmente (umas coisas por baixo das outras)*/
+  align-items: center;
+  gap: 16px;
+  background: rgba(200, 236, 235, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+/* estilo base para as caixas de texto (v1 e v2) */
+#site input[type="text"]:not(#res1) {
+  width: 100%;
+  max-width: 520px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #66b4b4;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+  outline: none;
+}
+
+/* efeito quando a caixa está selecionada (cresce) */
+#site input[type="text"]:not(#res1):focus {
+  transform: scale(1.02);
+}
+
+/* resultado maior e mais evidente */
+#res1, #res2 {
+  font-family: "Poppins", sans-serif;
+  width: 100%; /* ocupa toda a largura disponível do conteiner #site */
+  max-width: 100%;
+  min-width: 260px;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  font-size: 1.05rem;
+  border-radius: 12px;
+  border: 1px solid #cfd8e3;
+  background: #f6fbff;
+  box-shadow: 0 10px 28px rgba(16,24,40,0.08);
+  overflow-x: auto; /* permite ver texto longo com scroll horizontal*/
+}
+
+/* botão */
+button#comp1, button#comp2 {
+  padding: 10px 18px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #69c9c9;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+  box-shadow: 0 8px 20px rgba(43, 124, 255, 0.18);
+}
+
+button#comp1:hover, button#comp2:hover { 
+  transform: scale(1.04);
+  opacity: 0.98;
+  background-color:#5cafaf;
+}
+
+/* responsividade simples */
+@media (max-width: 520px) { /* ecrãs pequenos- até 520px */
+  #site { padding: 18px 12px; } /* menos padding */
+  #site input[type="text"]:not(#res1) { max-width: 100%; } /* caixas ocupam toda a largura */
+  #res1 { max-width: 100%; } /* resultado ocupa toda a largura */
+}
+
+/* fim estilos do comparador */

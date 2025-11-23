@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparadores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- animação do menu -->
+    <nav>
+      <div class="navbar">
+        <div class="container nav-container">
+            <input class="checkbox" type="checkbox" name="" id="" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>  
+          
+          <div class="menu-items">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="comp1.html">Comparador duplo</a></li>
+            <li><a href="comp2.html">Comparador triplo</a></li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<div id="site">
+    <h3>Comparador duplo</h3>
+
+    <p>Insere dois valores e observa a sua comparação (maior, menor ou iguais)</p>
+
+    <div>
+         <form>
+            <input type="text" id="v1" placeholder="Introduz valor">
+        </form>
+    </div>
+
+    <div>
+         <form>
+            <input type="text" id="v2" placeholder="Introduz valor">
+        </form>
+    </div>
+
+    <button onclick=comparar() id="comp1">Comparar</button>
+
+    <div>
+       <form> <!-- readonly- impede que se escreva, mas permite copiar. Disabled também impede copiar -->
+        <textarea id="res1" rows="2" placeholder="Resultado" readonly></textarea> <!-- 2 linhas para que o texto apareça todo -->
+      </form>
+    </div>
+</div>
+
+    <script src="script.js"> </script>
+</body>
+</html>
